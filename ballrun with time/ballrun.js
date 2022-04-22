@@ -57,16 +57,19 @@ function constructBall() {
   ballObject.domElement.style.top = ballObject.position.y + "px";
   ballObject.domElement.style.left = ballObject.position.x + "px";
 
+
   // use setInterval to run the move function every 500ms
   // and then delete the "Move" button.
-
+setInterval(move,500);
 }
 
 function move() {
+
+
+
   setPosition();
   drawPosition();
-}
-
+};
 function setPosition() {
   // Add velocity to the ball object's current position.
   ballObject.position = {
@@ -75,7 +78,7 @@ function setPosition() {
   }
 
   // Part 2: use the helper function to get the "wrapped" position instead of just the fixed position.
-  // ballObject.position = helpers.boundary().getWrappedPosition(ballObject.position);
+   ballObject.position = helpers.boundary().getWrappedPosition(ballObject.position);
 }
 
 function drawPosition() {
